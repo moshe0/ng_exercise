@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+
+import { Place } from '../place';
+import { Places } from '../mock-places';
 
 @Component({
   selector: 'app-weather-select',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherSelectComponent implements OnInit {
 
+  @Input() place: Place;
+  places = Places;
+  selectedPlace: Place;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(place: Place): void {
+    
+    place.isView = !place.isView;
   }
 
 }

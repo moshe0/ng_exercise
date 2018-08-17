@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +12,12 @@ export class HeaderComponent implements OnInit {
 
   isSettingsMode: boolean
 
-  constructor() { }
+  constructor(
+    private router:Router,
+  ) { 
+    router.events.subscribe(() => {
+  });
+  }
 
   ngOnInit() {
     this.isSettingsMode = true;
@@ -23,7 +31,7 @@ export class HeaderComponent implements OnInit {
 
   goBack(): void {
     this.isSettingsMode = true;
-    // this.location.back();
+    this.router.navigate(['/weatherView']);
   }
 
 }

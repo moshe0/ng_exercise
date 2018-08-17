@@ -1,3 +1,19 @@
-<p>
-  weather-select works!
-</p>
+<div class="body">
+        <h1>Select places to disply:</h1>
+        <ul class="places">
+          <li *ngFor="let place of places" 
+          (click)="onSelect(place)"
+          [class.selected]="place === selectedPlace">
+            <span class="badge">
+                <input type="checkbox" [(ngModel)]="place.isView">
+            </span> 
+            <span class="text">
+              {{place.name}}
+            </span> 
+            <span class="text">
+              {{place.degrees}}
+            </span> 
+          </li>
+        </ul>
+    </div>
+    
