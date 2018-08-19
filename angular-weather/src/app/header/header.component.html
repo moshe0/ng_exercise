@@ -1,6 +1,8 @@
 <div class="header" *ngIf="isSettingsMode">
   <p class="header-title">Weather list</p>
-  <p class="header-last-update">Last Update</p>
+  <p class="header-last-update" *ngIf="!!this.verbs.lastUpdate">
+    Last update: <span>{{lastUpdate}}</span>
+  </p>
   <button class="header-button" (click)="settings()">
       <a routerLink="/weatherSelect">
       <div class="header-button-div">

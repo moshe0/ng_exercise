@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 
 import { Place } from '../place';
-import { Places } from '../mock-places';
+import {PlaceService} from '../place.service';
 
 
 
@@ -11,12 +11,19 @@ import { Places } from '../mock-places';
   styleUrls: ['./weather-view.component.css']
 })
 export class WeatherViewComponent implements OnInit {
-  places = Places.filter(place => place.isView === true);
   selectedPlace: Place;
+  places : Place[];
 
-  constructor() { }
+  constructor(private placeService : PlaceService) { }
 
   ngOnInit() {
+    this.getPlaces();
+  }
+
+  getPlaces() : void{
+    this.placeService.getPlaces().subscribe(places => this.places = places);
+    this.places = this.places.filter(place => place.isView === true);
+
   }
 
  
