@@ -3,8 +3,11 @@
       <li *ngFor="let place of places" 
       [class.selected]="place === selectedPlace">
         <span class="text-view">
-          {{place.name}}
+          {{place.country}}
         </span> 
+        <span class="text-view">
+            {{place.city}}
+          </span> 
         <span class="text-view">
           {{place.degrees}}
         </span> 

@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { WeatherViewComponent } from './weather-view/weather-view.component';
 import { WeatherSelectComponent } from './weather-select/weather-select.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './/app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

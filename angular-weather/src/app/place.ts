@@ -1,6 +1,7 @@
 export class Place {
     id: number;
-    name: string;
+    country: string;
+    city: string;
     degrees: number;
     isView: boolean;
   }
